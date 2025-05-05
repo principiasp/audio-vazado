@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Áudio vazado</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #000000, #1a1a1a);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    header {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    input[type="password"] {
+      padding: 12px;
+      font-size: 18px;
+      border-radius: 8px;
+      border: none;
+      width: 200px;
+      text-align: center;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: #00c29e;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #00a386;
+    }
+
+    audio {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo-principia.jpg" alt="Principia Logo">
+  </header>
+  <div class="container">
+    <h1>Áudio vazado</h1>
+    <p>Digite a senha de 4 dígitos que está escondida no dossiê:</p>
+    <input type="password" id="senha" maxlength="4" />
+    <br />
+    <button onclick="verificarSenha()">Desbloquear</button>
+    <div id="conteudo" style="display:none;">
+      <p><strong>Escute com atenção...</strong></p>
+      <audio controls>
+        <source src="audio-pista.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio.
+      </audio>
+    </div>
+  </div>
+
+  <script>
+    function verificarSenha() {
+      const senha = document.getElementById("senha").value;
+      const conteudo = document.getElementById("conteudo");
+
+      if (senha === "PWHE") { // Altere aqui sua senha real
+        conteudo.style.display = "block";
+      } else {
+        alert("Senha incorreta. Tente novamente.");
+      }
+    }
+  </script>
+</body>
+</html>
