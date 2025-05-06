@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Áudio vazado</title>
+  <title>Áudio criptografado</title>
   <style>
     body {
       margin: 0;
@@ -49,6 +49,7 @@
       border: none;
       width: 200px;
       text-align: center;
+      text-transform: uppercase; /* Força visualmente maiúsculas */
     }
 
     button {
@@ -77,8 +78,13 @@
     <img src="logo-principia.jpg" alt="Principia Logo">
   </header>
   <div class="container">
-    <h1>Áudio vazado</h1>
-    <p>Digite a senha de 4 dígitos que está escondida no dossiê:</p>
+    <h1>Áudio criptografado</h1>
+    <p>
+      Este áudio está protegido por senha (e por um bom motivo!) Ele guarda algo muito revelador!
+    </p>
+    <p>
+      Se você já encontrou a senha de 4 dígitos escondida no dossiê, insira-a abaixo. Se ainda não achou? Peça ajuda… você vai precisar!
+    </p>
     <input type="password" id="senha" maxlength="4" />
     <br />
     <button onclick="verificarSenha()">Desbloquear</button>
@@ -93,7 +99,7 @@
 
   <script>
     function verificarSenha() {
-      const senha = document.getElementById("senha").value;
+      const senha = document.getElementById("senha").value.toUpperCase(); // Força maiúsculas
       const conteudo = document.getElementById("conteudo");
 
       if (senha === "PWHE") { // Altere aqui sua senha real
